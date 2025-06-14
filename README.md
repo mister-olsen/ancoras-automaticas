@@ -22,6 +22,3 @@ Criado para bloggers, jornalistas e criadores de conteúdo que valorizam a refer
 4.  Instale e ative o plugin.
 
 Não é necessária qualquer configuração. O plugin começará a funcionar imediatamente em todos os seus artigos (não afeta páginas).
-
----
-*Desenvolvido por Alexandre Rodrigues - [borvo-sc.com](https://www.borvo-sc.com)*
