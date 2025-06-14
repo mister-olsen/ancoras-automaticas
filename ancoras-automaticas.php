@@ -3,7 +3,7 @@
  * Plugin Name:       Âncoras Automáticas
  * Plugin URI:        https://www.borvo-sc.com
  * Description:       Adiciona um ícone de âncora a parágrafos e listas. Ao clicar, copia o URL para a área de transferência.
- * Version:           3.1
+ * Version:           3.2
  * Author:            Alexandre Rodrigues
  * Author URI:        https://www.borvo-sc.com
  * License:           GPL v2 or later
@@ -26,7 +26,8 @@ function ap_adicionar_ancoras_elementos($content) {
         $contador = 1;
 
         $post_url = get_permalink();
-        $icon_html = '<i class="fas fa-link"></i>';
+        // ALTERAÇÃO: Usa o HTML para um ícone Tabler
+        $icon_html = '<i class="ti ti-link"></i>';
 
         foreach ($elementos as $el) {
             if (strlen(trim($el->nodeValue)) == 0) continue;
@@ -67,7 +68,8 @@ add_filter('the_content', 'ap_adicionar_ancoras_elementos');
 function ap_adicionar_estilos_e_scripts() {
     if (!is_singular('post')) return;
 
-    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', [], null);
+    // ALTERAÇÃO: Carrega a folha de estilos dos Tabler Icons.
+    wp_enqueue_style('tabler-icons', 'https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css', [], null);
 
     $css = <<<CSS
     <style>
@@ -94,7 +96,11 @@ function ap_adicionar_estilos_e_scripts() {
             color: #a0a0a0 !important;
             background: none !important;
             line-height: 1;
-            font-size: 16px;
+            font-size: 18px; /* Ajuste para o tamanho dos Tabler Icons */
+        }
+        /* Estilo para os ícones Tabler dentro do link */
+        .ancora-elemento-link i {
+            font-style: normal;
         }
         p[id^="p-"]:hover .ancora-elemento-link,
         li[id^="p-"]:hover .ancora-elemento-link {
@@ -113,10 +119,11 @@ function ap_adicionar_estilos_e_scripts() {
     CSS;
     echo $css;
 
-    wp_register_script('ancoras-script', plugin_dir_url(__FILE__) . 'js/ancoras.js', [], '3.1', true);
+    // ALTERAÇÃO: Usa as classes dos Tabler Icons.
+    wp_register_script('ancoras-script', plugin_dir_url(__FILE__) . 'js/ancoras.js', [], '3.2', true);
     wp_localize_script('ancoras-script', 'ancoras_vars', [
-        'copied_icon'   => '<i class="fas fa-check"></i>',
-        'original_icon' => '<i class="fas fa-link"></i>'
+        'copied_icon'   => '<i class="ti ti-check"></i>',
+        'original_icon' => '<i class="ti ti-link"></i>'
     ]);
     wp_enqueue_script('ancoras-script');
 }
