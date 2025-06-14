@@ -1,0 +1,27 @@
+# Ficheiros do WordPress
+/wp-admin/
+/wp-includes/
+/wp-content/
+/wp-config.php
+/.htaccess
+/license.txt
+/readme.html
+/index.php
+
+# Ignorar a pasta do próprio plugin se estiver dentro de um repositório maior
+/ancoras-automaticas/
+
+# Ficheiros do sistema operativo
+.DS_Store
+Thumbs.db
+
+# Ficheiros de IDEs e editores
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ficheiros de dependências
+/node_modules/
+/vendor/
+composer.lock
