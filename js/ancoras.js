@@ -1,6 +1,6 @@
 /**
  * Script para o plugin Âncoras Automáticas
- * Versão 3.1
+ * Versão 3.2
  */
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
             navigator.clipboard.writeText(textToCopy).then(
                 function () {
                     const copiedIcon = ancoras_vars.copied_icon;
-                    const originalIcon = ancoras_vars.original_icon;
                     
                     const tempOriginalIcon = clickedLink.innerHTML;
 
